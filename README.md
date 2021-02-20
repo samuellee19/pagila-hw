@@ -32,7 +32,13 @@ The following picture illustrates the database's structure:
     1. The folder `expected` contains the expected outputs for each problem.
        You can verify your answer by checking that the output of your `SELECT` statement matches the output in the `answers` folder.
     1. The script `check_answers.sh` will perform these checks for you automatically using the `diff` command.
-       You can run it through docker via
+       It must be run from within a postgres docker container.
+
+       Bring up the docker container with the command
+       ```
+       $ docker-compose up -d --build
+       ```
+       Then run the the test case script with
        ```
        $ docker-compose exec pg ./check_answers.sh
        ```
